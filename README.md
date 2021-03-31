@@ -13,5 +13,11 @@
 snap install gtk-theme-yaru-mate
 ```
 
+To connect the theme to an app, please run:
+
+```
+snap connect [other snap]:gtk-3-themes gtk-theme-yaru-mate:gtk-3-themes
+```
+
 An official snap built with ❤︎ by the Ubuntu MATE team using configuration at
 <https://github.com/ubuntu-mate/gtk-theme-yaru-mate-snap> and the Yaru theme from the upstream project source <https://github.com/ubuntu/yaru>.
