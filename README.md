@@ -1,4 +1,4 @@
-# Yaru MATE Snap
+# Yaru MATE
 
 [![gtk-theme-yaru-mate](https://snapcraft.io/gtk-theme-yaru-mate/badge.svg)](https://snapcraft.io/gtk-theme-yaru-mate)
 [![gtk-theme-yaru-mate](https://snapcraft.io/obs-cli/trending.svg?name=0)](https://snapcraft.io/gtk-theme-yaru-mate)
@@ -13,10 +13,18 @@
 snap install gtk-theme-yaru-mate
 ```
 
-To connect the theme to an app, please run:
+To connect the theme to a snapped application, you can run:
 
 ```
-snap connect [other snap]:gtk-3-themes gtk-theme-yaru-mate:gtk-3-themes
+sudo snap connect [other snap]:gtk-3-themes gtk-theme-yaru-mate:gtk-3-themes
+sudo snap connect [other snap]:gtk-2-themes gtk-theme-yaru-mate:gtk-2-themes
+```
+
+Or, you can connect the Yaru MATE snapped theme to all snapped apps that support theme plugs:
+
+```
+for PLUG in $(snap connections | grep gtk-common-themes:gtk-3-themes | awk '{print $2}'); do sudo snap connect ${PLUG} gtk-theme-yaru-mate:gtk-3-themes; done
+for PLUG in $(snap connections | grep gtk-common-themes:gtk-2-themes | awk '{print $2}'); do sudo snap connect ${PLUG} gtk-theme-yaru-mate:gtk-2-themes; done
 ```
 
 An official snap built with ❤︎ by the Ubuntu MATE team using configuration at
