@@ -22,12 +22,14 @@ slots:
       read:
         - $SNAP/share/gtk2/Yaru-MATE-dark
         - $SNAP/share/gtk2/Yaru-MATE-light
+        - $SNAP/share/gtk2/Yaru-MATE
   gtk-3-themes:
     interface: content
     source:
       read:
         - $SNAP/share/themes/Yaru-MATE-dark
         - $SNAP/share/themes/Yaru-MATE-light
+        - $SNAP/share/themes/Yaru-MATE
 
 parts:
   theme:
