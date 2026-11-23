@@ -1,0 +1,32 @@
+name: gtk-theme-yaru-mate
+platforms:
+  all:
+    build-on: [amd64]
+    build-for: [all]
+version: '26.10.0'
+summary: Yaru MATE is the default theme for Ubuntu MATE 21.04 and newer.
+description: |
+  Snap of the Yaru MATE GTK theme.
+build-base: core26
+base: bare
+grade: stable
+confinement: strict
+
+slots:
+  gtk-3-themes:
+    interface: content
+    source:
+      read:
+        - $SNAP/share/themes/Yaru-MATE-dark
+        - $SNAP/share/themes/Yaru-MATE-light
+        - $SNAP/share/themes/Yaru-MATE
+
+parts:
+  gtk-theme:
+    plugin: dump
+    source: http://archive.ubuntu.com/ubuntu/pool/universe/u/ubuntu-mate-artwork/ubuntu-mate-themes_$SNAPCRAFT_PROJECT_VERSION_all.deb
+    organize:
+      usr/share/themes: share/themes
+    prime:
+      - share/themes/*/gtk-3.0
+      - share/themes/*/gtk-4.0
